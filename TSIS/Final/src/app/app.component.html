@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>My cafe</h1>
+    <a mat-button
+       [color]="pageLinkActive.isActive? 'accent':null"
+       routerLink="/menu"
+       routerLinkActive="active"
+       #pageLinkActive="routerLinkActive">Menu</a>
+    <a mat-button
+       [color]="postsLinkActive.isActive? 'accent':null"
+       routerLink="/order"
+       routerLinkActive="active"
+       #postsLinkActive="routerLinkActive">Cart</a>
+
+
+
+
+    <a mat-button class="login" *ngIf="!logged"
+       [color]="loginLinkActive.isActive? 'accent':null"
+       routerLink = "/login"
+       routerLinkActive="active"
+       #loginLinkActive="routerLinkActive">Login</a>
+    <div class="login" *ngIf="logged" ><h5>Hello, {{name}}</h5>
+    <a mat-button
+       [color]="loginLinkActive.isActive? 'accent':null"
+       routerLinkActive="active"
+       #loginLinkActive="routerLinkActive"
+    (click)="logout()">Logout</a>
+    </div>
+    <a mat-button
+       [color]="registerLinkActive.isActive? 'accent':null"
+       routerLink = "/register"
+       routerLinkActive="active"
+       #registerLinkActive="routerLinkActive">Sign up</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

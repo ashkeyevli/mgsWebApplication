@@ -1,0 +1,12 @@
+<h1 style="text-align:center; margin: 40px 0px; color: mediumpurple;" >Menu</h1>
+<div class="products" >
+  <mat-card class="product-item maxScale" *ngFor="let menuItem of menu">
+    <mat-card-header class="a" routerLink="{{menuItem.id}}/dishes"  [title]="menuItem.name ">
+      <mat-card-title style="text-align: center">{{ menuItem.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <img src={{menuItem.image_url_menu}} width="270px">
+    </mat-card-content>
+
+  </mat-card>
+</div>
