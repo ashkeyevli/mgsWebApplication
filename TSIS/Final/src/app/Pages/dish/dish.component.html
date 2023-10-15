@@ -1,0 +1,72 @@
+
+<div class="menu-categories">
+  <a routerLink="/menu"><h1 style="text-align:center; margin: 40px 0px; color: mediumpurple;">Menu</h1></a>
+</div>
+
+<ng-container *ngIf="!logged">
+<div class="products">
+  <mat-card class="product-item maxScale"  *ngFor="let dish of dishes">
+      <mat-card-header class="a" routerLink="/dishes/{{dish.id}}"  [title]="dish.name ">
+        <mat-card-title>{{ dish.name }}</mat-card-title>
+      </mat-card-header>
+    <mat-card-content>
+    <img src={{dish.imageUrl}} width="270px">
+      <div>
+        <h3 id="price">{{ dish.price }} tenge</h3>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+</ng-container>
+
+
+
+
+<ng-container *ngIf="logged">
+<ng-container *ngFor="let ss of user">
+  <div *ngIf="ss.is_staff">
+    <div class="products">
+      <mat-card class="product-item maxScale"  *ngFor="let dish of dishes">
+        <mat-card-header class="a" routerLink="/dishes/{{dish.id}}"  [title]="dish.name ">
+          <mat-card-title>{{ dish.name }}</mat-card-title>
+
+        </mat-card-header>
+        <mat-card-content>
+          <img src={{dish.imageUrl}} width="270px">
+          <div>
+            <h3 id="price">{{ dish.price }} tenge</h3>
+          </div>
+        </mat-card-content>
+        <mat-card-footer>
+        <div>
+          <button mat-flat-button color="primary" style="margin-right: 10px" (click)="createDish()" routerLink="/dishes/{{dish.id}}/edit">Edit Dish</button>
+          <button mat-fab color="warn" style="margin-left: 10px"  (click)="deleteDish(dish)"><mat-icon>delete</mat-icon></button>
+
+        </div>
+        </mat-card-footer>
+      </mat-card>
+
+
+          <button mat-mini-fab color="accent" style="margin-top: auto; margin-bottom: auto" routerLink="/dishes/create" (click)="createDish()">
+            <mat-icon>plus_one</mat-icon>
+          </button>
+
+    </div>
+</div>
+  <div *ngIf="!ss.is_staff">
+    <div class="products">
+      <mat-card class="product-item maxScale"  *ngFor="let dish of dishes">
+        <mat-card-header class="a" routerLink="/dishes/{{dish.id}}"  [title]="dish.name ">
+          <mat-card-title>{{ dish.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img src={{dish.imageUrl}} width="270px">
+          <div>
+            <h3 id="price">{{ dish.price }} tenge</h3>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</ng-container>
+</ng-container>

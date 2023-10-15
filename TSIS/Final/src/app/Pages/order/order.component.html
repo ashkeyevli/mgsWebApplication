@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="shopping-cart" *ngIf="logged">
+  <div class="title">
+    Shopping cart
+  </div>
+  <div  *ngFor="let order of orders">
+
+    <div class="item">
+      <div class="buttons">
+        <button class="btn"><i class="fa fa-trash" (click)="deleteOrder(order)"></i></button>
+      </div>
+
+
+      <div class="image">
+        <img src={{order.imageUrl}}  alt="" width="100px" />
+      </div>
+
+      <div class="description">
+        <span>{{order.name}}</span>
+      </div>
+      <input class="count" type="text" name="count" [(ngModel)]="order.count" >
+
+      <div class="total-price">{{order.count*order.price}}</div>
+
+
+    </div>
+
+  </div>
+  <button class="btn-order" routerLink="/menu" (click)="finishOrder()">Make Order</button>
+
+  <button class="btn-order"  (click)="deleteOrders()">Clear</button>
+
+
+</div>
+
+
+<div *ngIf="!logged" class="title" style="margin-left: 5em">
+  In order to be able to access the cart, please log into the system and try again!
+</div>
+
+
+
