@@ -37,6 +37,13 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="api_dish: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
@@ -147,6 +154,9 @@
       <workItem from="1697203774463" duration="3054000" />
       <workItem from="1697270964999" duration="2841000" />
       <workItem from="1697352401723" duration="704000" />
+      <workItem from="1697353932245" duration="1606000" />
+      <workItem from="1697383934343" duration="2531000" />
+      <workItem from="1697441726508" duration="736000" />
     </task>
     <task id="LOCAL-00001" summary="registration+login works fully">
       <created>1587723722674</created>
@@ -200,11 +210,11 @@
       <screen x="62" y="0" width="1218" height="720" />
     </state>
     <state x="175" y="6" key="SettingsEditor/62.0.1218.720@62.0.1218.720" timestamp="1697203973294" />
-    <state x="486" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1697352836562">
+    <state x="318" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1697441816127">
       <screen x="62" y="0" width="1218" height="720" />
     </state>
     <state x="2588" y="347" key="com.intellij.ide.util.TipDialog/62.0.1218.720/1920.0.1920.1040@1920.0.1920.1040" timestamp="1696783414257" />
-    <state x="486" y="240" key="com.intellij.ide.util.TipDialog/62.0.1218.720/1920.0.1920.1040@62.0.1218.720" timestamp="1697352836562" />
-    <state x="486" y="240" key="com.intellij.ide.util.TipDialog/62.0.1218.720@62.0.1218.720" timestamp="1697270967217" />
+    <state x="486" y="240" key="com.intellij.ide.util.TipDialog/62.0.1218.720/1920.0.1920.1040@62.0.1218.720" timestamp="1697354055750" />
+    <state x="318" y="225" key="com.intellij.ide.util.TipDialog/62.0.1218.720@62.0.1218.720" timestamp="1697441816127" />
   </component>
 </project>
