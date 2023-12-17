@@ -1,0 +1,30 @@
+<!-- review.component.html -->
+<div class="review-container">
+  <h2>Restaurant Reviews</h2>
+
+  <!-- Form to submit a new review -->
+  <div class="new-review">
+    <h3>Add a Review</h3>
+    <input  class="un " type="text" align="center" placeholder="Username" [(ngModel)]="username" required>
+    <select id="rating" [(ngModel)]="rating">
+      <option value="1">1 Star</option>
+      <option value="2">2 Stars</option>
+      <option value="3">3 Stars</option>
+      <option value="4">4 Stars</option>
+      <option value="5">5 Stars</option>
+    </select>
+    <input  class="un " type="text" align="center" placeholder="comment" [(ngModel)]="comment" required>
+    <button class="submit" (click)="submitReview()">Submit review</button>
+  </div>
+
+  <!-- Display existing reviews -->
+  <div class="existing-reviews">
+    <h3>Existing Reviews</h3>
+    <ul>
+      <li *ngFor="let review of reviews">
+        <strong>{{ review.username }}</strong> - {{ review.rating }} Stars<br>
+        {{ review.comment }}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -11,6 +11,11 @@
        routerLink="/order"
        routerLinkActive="active"
        #postsLinkActive="routerLinkActive">Cart</a>
+    <a mat-button
+       [color]="postsLinkActive.isActive? 'accent':null"
+       routerLink="/review"
+       routerLinkActive="active"
+       #postsLinkActive="routerLinkActive">Review</a>
 
 
 

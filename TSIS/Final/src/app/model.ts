@@ -41,4 +41,10 @@ export interface IOrder {
   count: number;
   user_id: LoginResponse;
 }
+export interface IReview {
+  id: number;
+  username: string;
+  rating: number;
+  comment: string;
+}
 

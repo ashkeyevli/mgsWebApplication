@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {IDish, IMenu, IOrder, LoginResponse, User} from './model';
+import {IDish, IMenu, IOrder, IReview, LoginResponse, User} from './model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,10 @@ export class ProviderService {
   constructor(private http: HttpClient ){
   }
 
-  private menuUrl = 'http://192.168.99.100:8000/api/menu/';
+  private menuUrl = 'http://127.0.0.1:8000/api/menu/';
 
   postUser(login: any, pass: any, name: any, nEmail: any): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>('http://192.168.99.100:8000/api/register/', {
+    return this.http.post<LoginResponse>('http://127.0.0.1:8000/api/register/', {
       username: login,
       password: pass,
       first_name: name,
@@ -26,7 +26,7 @@ export class ProviderService {
 
 
   login(username, password): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`http://192.168.99.100:8000/api/login/`, {
+    return this.http.post<LoginResponse>(`http://127.0.0.1:8000/api/login/`, {
       username,
       password
     });
@@ -40,18 +40,18 @@ export class ProviderService {
 
   }
   getUser(username: string): Observable<User[]> {
-    return this.http.get<User[]>(`http://192.168.99.100:8000/api/user?username=${username}`);
+    return this.http.get<User[]>(`http://127.0.0.1:8000/api/user?username=${username}`);
 
   }
   getDishes(menuId: number): Observable<IDish[]> {
-    const url = `http://192.168.99.100:8000/api/menu/${menuId}/dishes/`;
+    const url = `http://127.0.0.1:8000/api/menu/${menuId}/dishes/`;
     console.log(url);
     console.log(this.http.get(url));
     return this.http.get<IDish[]>(url);
   }
 
   postDish(name, price, imageUrl, description, menu, count= 1): Observable<IDish>{
-    return this.http.post<IDish>(`http://192.168.99.100:8000/api/dishes/`, {
+    return this.http.post<IDish>(`http://127.0.0.1:8000/api/dishes/`, {
       name,
       price,
       imageUrl,
@@ -62,7 +62,7 @@ export class ProviderService {
   }
 
   putDish(dishId, name, price, imageUrl, description, menu): Observable<IDish>{
-    return this.http.put<IDish>(`http://192.168.99.100:8000/api/dishes/${dishId}/`, {
+    return this.http.put<IDish>(`http://127.0.0.1:8000/api/dishes/${dishId}/`, {
       name,
       price,
       imageUrl,
@@ -73,34 +73,42 @@ export class ProviderService {
   }
 
   getDish(dishId: number): Observable<IDish> {
-    const url = `http://192.168.99.100:8000/api/dishes/${dishId}/`;
+    const url = `http://127.0.0.1:8000/api/dishes/${dishId}/`;
     return this.http.get<IDish>(url);
   }
 
 
 
   getOrders(): Observable<IOrder[]> {
-    return this.http.get<IOrder[]>('http://192.168.99.100:8000/api/orders/');
+    return this.http.get<IOrder[]>('http://127.0.0.1:8000/api/orders/');
   }
 
   postOrder(dish: IDish): Observable<IOrder> {
-    return this.http.post<IOrder>('http://192.168.99.100:8000/api/orders/', dish, this.httpOptions);
+    return this.http.post<IOrder>('http://127.0.0.1:8000/api/orders/', dish, this.httpOptions);
+  }
+
+  getReviews(): Observable<IReview[]> {
+    return this.http.get<IReview[]>('http://127.0.0.1:8000/api/reviews/');
+  }
+
+  postReview(username, rating, comment): Observable<IReview> {
+    return this.http.post<IReview>('http://127.0.0.1:8000/api/submit_review/', {username, rating, comment}, this.httpOptions);
   }
 
 
   deleteOrder(order: IOrder | number): Observable<IOrder> {
     const id = typeof order === 'number' ? order : order.id;
-    return this.http.delete<IOrder>(`http://192.168.99.100:8000/api/orders/${id}`, this.httpOptions);
+    return this.http.delete<IOrder>(`http://127.0.0.1:8000/api/orders/${id}`, this.httpOptions);
 
   }
   deleteOrders(): Observable<IOrder[]> {
-    return this.http.delete<IOrder[]>('http://192.168.99.100:8000/api/orders/', this.httpOptions);
+    return this.http.delete<IOrder[]>('http://127.0.0.1:8000/api/orders/', this.httpOptions);
 
   }
 
   deleteDish(dish: IDish | number): Observable<IDish> {
     const id = typeof dish === 'number' ? dish : dish.id;
-    return this.http.delete<IDish>(`http://192.168.99.100:8000/api/dishes/${id}`, this.httpOptions);
+    return this.http.delete<IDish>(`http://127.0.0.1:8000/api/dishes/${id}`, this.httpOptions);
   }
 }
 

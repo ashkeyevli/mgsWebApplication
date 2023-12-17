@@ -9,6 +9,7 @@ import {OrderComponent} from './Pages/order/order.component';
 import {DishCreateComponent} from './Pages/dish-create/dish-create.component';
 import {DishEditComponent} from './Pages/dish-edit/dish-edit.component';
 import {StartPageComponent} from './Pages/start-page/start-page.component';
+import {RestaurantReviewComponent} from './Pages/restaurant-review/restaurant-review.component';
 
 const routes: Routes = [
   { path: '', component: StartPageComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'dishes/:dishId', component: DishItemComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: SignupComponent },
-  { path: 'order', component: OrderComponent}
+  { path: 'order', component: OrderComponent},
+  { path: 'review', component: RestaurantReviewComponent}
 ];
 
 @NgModule({
