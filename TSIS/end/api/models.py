@@ -67,7 +67,10 @@ class Order(models.Model):
             'count': self.count
         }
 
-
+class RestaurantReview(models.Model):
+    username = models.CharField(max_length=255)
+    rating = models.IntegerField()
+    comment = models.TextField()
 # class AuthResponse(models.Model):
 #     token = models.CharField(max_length=250)
 #     is_admin = models.BooleanField()

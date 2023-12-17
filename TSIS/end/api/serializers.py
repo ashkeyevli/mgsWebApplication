@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Dish, Order, Menu, DishCreation
+from api.models import Dish, Order, Menu, DishCreation, RestaurantReview
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import BCryptSHA256PasswordHasher
 
@@ -81,3 +81,9 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
+
+
+class RestaurantReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RestaurantReview
+        fields = ['id', 'username', 'rating', 'comment']

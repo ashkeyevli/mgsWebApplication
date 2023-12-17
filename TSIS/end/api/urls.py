@@ -1,7 +1,8 @@
 from django.urls import path
 from rest_framework_jwt.views import obtain_jwt_token
 
-from api.views import UserAPIView,CreateDishAPIView,menu_view, OrderAPIView, MenuDishesAPIView, DishDetailAPIView, orders_list, Register
+from api.views import UserAPIView, CreateDishAPIView, menu_view, OrderAPIView, MenuDishesAPIView, DishDetailAPIView, \
+    orders_list, Register, RestaurantReviewList, submit_review
 
 urlpatterns = [
     path('menu/', menu_view),
@@ -12,5 +13,7 @@ urlpatterns = [
     path('orders/<int:pk>', OrderAPIView.as_view()),
     path('login/', obtain_jwt_token),
     path('user', UserAPIView.as_view()),
-    path('register/', Register.as_view())
+    path('register/', Register.as_view()),
+    path('reviews/',  RestaurantReviewList.as_view(), name='review-list'),
+    path('submit_review/', submit_review, name='submit-review')
 ]

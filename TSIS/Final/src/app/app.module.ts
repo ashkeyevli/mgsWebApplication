@@ -22,6 +22,7 @@ import { StartPageComponent } from './Pages/start-page/start-page.component';
 import {MatIconModule} from '@angular/material/icon';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { RestaurantReviewComponent } from './Pages/restaurant-review/restaurant-review.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { environment } from '../environments/environment';
     OrderComponent,
     DishCreateComponent,
     DishEditComponent,
-    StartPageComponent
+    StartPageComponent,
+    RestaurantReviewComponent
   ],
   imports: [
     BrowserModule,

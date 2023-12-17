@@ -4,8 +4,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
-from api.models import Menu, Dish, Order
-from api.serializers import UserSerializer,MenuSerializer, DishSerializer, OrderSerializer, RegisterSerializer, DishCreationSerializer
+from api.models import Menu, Dish, Order, RestaurantReview
+from api.serializers import UserSerializer, MenuSerializer, DishSerializer, OrderSerializer, RegisterSerializer, \
+    DishCreationSerializer, RestaurantReviewSerializer
 from django.shortcuts import render
 from django.contrib.auth.models import User
 
@@ -125,4 +126,17 @@ class UserAPIView(generics.ListCreateAPIView):
     serializer_class = UserSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['username']
+
+
+class RestaurantReviewList(generics.ListCreateAPIView):
+    queryset = RestaurantReview.objects.all()
+    serializer_class = RestaurantReviewSerializer
+
+@api_view(['POST'])
+def submit_review(request):
+    serializer = RestaurantReviewSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)
 
